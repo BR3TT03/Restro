@@ -32,7 +32,7 @@ class _Menu extends State<Menu> {
   List item;
   int table_No =1;
   int counter = 0, d;
-  String ip = "192.168.137.1";
+  String ip = "hotel-mgmt-api.herokuapp.com";
   //Data request to server
   //getData function
   Future<String> getData() async {
@@ -40,7 +40,7 @@ class _Menu extends State<Menu> {
 
 
     http.Response response =
-        await http.get(Uri.encodeFull("http://$ip:8080/welcome"));
+        await http.get(Uri.encodeFull("https://$ip/welcome"));
 
     this.setState(() {
       jsn = json.decode(response.body);
@@ -64,7 +64,7 @@ class _Menu extends State<Menu> {
       a = item[1];
       table_No=int.parse(item[2]);
       print(table_No);
-      http.Response response = await http.get("http://$ip:8080/id?id=$a");
+      http.Response response = await http.get("http://$ip/id?id=$a");
       res = await json.decode(response.body);
       return res;
     }
@@ -112,7 +112,7 @@ class _Menu extends State<Menu> {
                       splashColor: Colors.green.withAlpha(100),
                       child: Column(
                         children: <Widget>[
-                          (Image.network("http://$ip:8080/Image?name=$img")),
+                          (Image.network("http://$ip/Image?name=$img")),
                           Padding(
                             padding: EdgeInsets.only(top: 4, bottom: 8),
                             child: Column(
