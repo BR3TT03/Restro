@@ -46,7 +46,7 @@ class _Menu extends State<Menu> {
   //Qr Scan
   Future<Map> _qr() async {
     scan = "true";
-    _scan = await FlutterBarcodeScanner.scanBarcode("#004297", "Cancel", true);
+    _scan = await FlutterBarcodeScanner.scanBarcode("#004297", "Cancel", true,ScanMode.QR);
     _value = _scan;
     item = _value.split("/");
     if (item.contains("KCC")) {
